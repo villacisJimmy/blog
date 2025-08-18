@@ -15,4 +15,4 @@ categories: [blog]
  
 ---
 
-[← Volver al inicio](../..)
+[← Volver al inicio]({{ "/" | relative_url }})
