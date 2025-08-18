@@ -1,3 +1,12 @@
- # Blog posts
- - [Post 1](https://github.com/villacisJimmy/post1)
- - [Post 2](https://github.com/villacisJimmy/post2)
+---
+layout: default
+title: Blog
+---
+
+# Blog 📝
+
+Aquí están mis publicaciones:
+
+{% for post in site.posts %}
+- [{{ post.title }}]({{ post.url }}) ({{ post.date | date: "%B %d, %Y" }})
+{% endfor %}
