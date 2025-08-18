@@ -5,6 +5,3 @@ plugins:
 title: Personal Blog
 description: This is a personal blog to register my learning path
 
-         {% for post in site.posts %}
-           - [{{ post.title }}]({{ post.url }}) ({{ post.date | date: "%B %d, %Y" }})
-         {% endfor %}
