@@ -5,7 +5,7 @@ title: Blog
 
 # Blog 📝
 
-Aquí están mis publicaciones:
+Lista de publicaciones:
 
 {% for post in site.posts %}
 - [{{ post.title }}]({{ post.url }}) ({{ post.date | date: "%B %d, %Y" }})
