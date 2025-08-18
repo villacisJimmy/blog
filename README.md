@@ -1,2 +1,2 @@
-# secblog.github.io
+# Blog documentation
 Personal blog documentation
