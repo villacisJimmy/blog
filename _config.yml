@@ -4,4 +4,6 @@ plugins:
 
 title: Personal Blog
 description: This is a personal blog to register my learning path
+baseurl: "/blog"
+
 
