@@ -1,5 +1,6 @@
- # My Projects
- - [Project 1](https://github.com/villacisJimmy/project1)
- - [Project 2](https://github.com/villacisJimmy/project2)
+# My Projects
+
+- [Project 1](projects/project1.md)
+- [Project 2](projects/project2.md)
 
 [← Volver al inicio](index.md)
