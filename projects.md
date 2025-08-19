@@ -1,6 +1,17 @@
-# My Projects
+---
+layout: default
+title: My Projects
+---
 
-- [Project 1](projects/project1.md)
-- [Project 2](projects/project2.md)
+# My Projects 🚧
 
-[← Volver al inicio](index.md)
+{% for project in site.projects %}
+## [{{ project.title }}]({{ project.url }})
+{{ project.description }}
+
+🔗 [Ver en GitHub]({{ project.link }})
+
+---
+{% endfor %}
+
+[← Volver al inicio]({{ "/" | relative_url }})
