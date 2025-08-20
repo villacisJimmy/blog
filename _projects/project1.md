@@ -126,5 +126,4 @@ Snort generó alertas diferenciadas según el tipo de conexión o escaneo.
 
 [🔗 Ver en GitHub](https://github.com/villacisJimmy/project1)
 
-[← Volver a proyectos](../projects.md)
-
+[← Volver al inicio]({{ "/" | relative_url }})
