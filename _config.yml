@@ -3,7 +3,7 @@ plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
 
 title: Personal Blog
-description: This is a personal blog to register my learning path
+description: This is a personal blog to register my academic journey
 baseurl: "/blog"
 
 collections:
