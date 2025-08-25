@@ -41,9 +41,7 @@ Network Kali
 ```
 ifconfig
 ```
-<img src="{{ '/assets/img/project2/networkkali.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
-
-
+<img src="{{ '/assets/img/project2/3.networkkali.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
 
 ## T (Tarea)
 
@@ -65,6 +63,7 @@ sudo systemctl enable --now nftables
 sudo nft add table inet suri
 sudo nft add chain inet suri input '{ type filter hook input priority 0 ; policy accept ; }'
 ```
+<img src="{{ '/assets/img/project2/6.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
 
 Encolar solo SSH hacia el server (puerto 22 en enp0s1)
 
@@ -75,6 +74,7 @@ sudo nft add rule inet suri input iif "enp0s1" tcp dport 22 queue num 0 bypass
 # Ver reglas:
 sudo nft list ruleset
 ```
+<img src="{{ '/assets/img/project2/7.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
 
 Activar NFQUEUE en Suricata `/etc/suricata/suricata.yaml`
 
@@ -85,12 +85,16 @@ vars:
   address-groups:
     HOME_NET: "[192.168.64.4]" --> IP Ubuntu Server
 ```
+<img src="{{ '/assets/img/project2/8.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
+
 Añadir la sección nfqueue
 ```
 nfqueue:
   - id: 0
     fail-open: yes
 ```
+<img src="{{ '/assets/img/project2/9.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
+
 Asegúrate de incluir custom.rules en rule-files::
 ```
 rule-files:
@@ -106,23 +110,31 @@ ExecStart=
 ExecStart=/usr/bin/suricata -c /etc/suricata/suricata.yaml -q 0
 
 ```
+<img src="{{ '/assets/img/project2/10.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
+
 Guardar y luego
 ```
 sudo systemctl daemon-reload
 sudo systemctl enable --now suricata
 sudo systemctl status suricata --no-pager
 ```
+<img src="{{ '/assets/img/project2/11.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
+
 Carga del modulo
 ```
 sudo modprobe nfnetlink_queue
 lsmod | grep nfnetlink_queue
 ```
+<img src="{{ '/assets/img/project2/12.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
+
 Reglas (ET Open + regla local de brute force)
 Descargar/actualizar reglas de la comunidad
 ```
 sudo suricata-update
 sudo systemctl reload suricata
 ```
+<img src="{{ '/assets/img/project2/13.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
+
 Crear una regla local para fuerza bruta SSH
 
 Contaremos SYN repetidos hacia 22/tcp desde la misma IP y drop a partir de N intentos en una ventana de tiempo.
@@ -131,6 +143,8 @@ Edita `/etc/suricata/rules/custom.rules` y añade:
 # Dropea brute force SSH (6+ SYN en 60s hacia 22/tcp)
 drop tcp $EXTERNAL_NET any -> $HOME_NET 22 (msg:"LOCAL SSH brute force - demasiados intentos"; flags:S; detection_filter:track by_src, count 6, seconds 60; classtype:attempted-recon; sid:1000001; rev:3;)
 ```
+<img src="{{ '/assets/img/project2/14.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
+
 Guardar y recargar suricata 
 ```
 sudo systemctl reload suricata
@@ -145,10 +159,13 @@ nmap -p22 192.168.64.4
 hydra -l root -P /usr/share/wordlists/rockyou.txt ssh://192.168.64.4 -t 4 -s 22
 
 ```
+<img src="{{ '/assets/img/project2/15.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
+
 Verificación de “drops” en Ubuntu
 ```
 sudo tail -f /var/log/suricata/eve.json
 ```
+<img src="{{ '/assets/img/project2/16.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
 
 ## R — Resultados esperados
 
