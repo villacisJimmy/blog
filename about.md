@@ -1,5 +1,5 @@
  # About Me  
- I am someone curious about technology.
 
+ I am just a regular person.
 
 [← Volver al inicio](index.md)
