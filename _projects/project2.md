@@ -35,7 +35,7 @@ sudo systemctl status suricata
 <img src="{{ '/assets/img/project2/1.suricataversionip.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
 
 
-<img src="{{ '/assets/img/project2/suricataservice.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
+<img src="{{ '/assets/img/project2/2.suricataservice.png' | relative_url }}" alt="Ubuntu Kali - Suricata" width="600">
 
 Network Kali
 ```
