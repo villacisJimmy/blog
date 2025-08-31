@@ -20,7 +20,7 @@ Para este laboratorio hemos preparado un entorno con 2 máquinas virtuales. La p
 [Consideración 3]: La información dinámica de la tabla ARP es eliminada en un transcurso de tiempo establecido, pero la información ingresada manualmente (estática) se mantiene hasta que se cumplan ciertas condiciones.
 
 [Descripción del ataque]:
-- Un atacante [Kali] con direccion IP [1.1.1.1] y MAC [01-01-01-01-01-01], tiene como objetivo interponerse en la comunicacion del sistema [Windows11] con IP [2.2.2.2] y MAC [02-02-02-02-02-02] y el router con IP [3.3.3.3] y MAC [03-03-03-03-03-03].
+- Un atacante [Kali] con direccion IP [192.168.64.8] y MAC [b6-99-69-c1-11-f7], tiene como objetivo interponerse en la comunicacion del sistema [Windows11] con IP [192.168.64.10] y MAC [52-d3-c3-5d-40-fd] y el router con IP [192.168.64.1] y MAC [a2-78-17-b6-59-64].
 - La maquina Kali envia tramas [ARP Reply] a cada uno de ellos. Kali le indica a windows11 que la IP del router se corresponde con su MAC. Al equipo router le indica que la IP de windows11 se corresponde con su MAC
 - Cuando ambos sistemas reciban la información y lo almacenen en sus tablas ARP se encontrarán ya engañados. El sistema Windows creerá que se esta comunicando con la IP del router pero estará enviandole la información a la máquina Kali.
 
@@ -87,7 +87,7 @@ net.sniff on
 
 Con eso ya somos capaces de interceptar el trafico que genera la maquina Windows
 
-Como parte del laboratorio tiene como finalidad demostrar la captura de credenciales sobre el protocolo HTTP, seguimos con las siguientes instrucciones
+Parte del laboratorio tiene como finalidad demostrar la captura de credenciales sobre el protocolo HTTP. Seguimos con las siguientes instrucciones:
 
   - Realizar login dentro de [testfire.net/login.jsp] este es un sitio web vulnerable utilizado para practicar de pentesting.
 
@@ -112,11 +112,14 @@ Ahora vamos a ver la comparacion entre la tabla antes y después del ataque con 
 
 <img src="{{ '/assets/img/project3/arpwindows.png' | relative_url }}" alt="ARP Spoofing and MiTM Attack" width="600">
 
+Se logra apreciar como la direccion MAC del router a cambiado a la direccion MAC de la maquina Kali (MiTM).
+
 Haciendo uso de wireshark analizamos el tráfico al momento que el ataque fue realizado.
 
 <img src="{{ '/assets/img/project3/wireshark.png' | relative_url }}" alt="ARP Spoofing and MiTM Attack" width="600">
 <img src="{{ '/assets/img/project3/wireshark2.png' | relative_url }}" alt="ARP Spoofing and MiTM Attack" width="600">
 
+Es posible ver mensajes que advierten que se ha detectado una tráfico duplicado. Que se corresponden con la maquina Kali y el router.
 
 
 ## R (Resultado)
