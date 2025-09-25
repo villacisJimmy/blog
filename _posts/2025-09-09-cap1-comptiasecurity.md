@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CompTIA Security+ Certification Cap-1"
-date: 2025-08-18
+date: 2025-09-25
 categories: [blog]
 ---
  
