@@ -1,9 +1,9 @@
----
+ ---
 layout: post
 title: "CompTIA Security+ Certification Cap-2"
 date: 2025-09-29
 categories: [blog]
----
+ ---
  
 # Title  
 CompTIA Security+ Certification Cap-2
