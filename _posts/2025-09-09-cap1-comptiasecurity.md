@@ -1,12 +1,13 @@
----
+ ---
 layout: post
 title: "CompTIA Security+ Certification Cap-1"
 date: 2025-09-25
 categories: [blog]
----
+ ---
  
 # Title  
-CompTIA Security+ Certification Cap-1 
+CompTIA Security+ Certification Cap-1
+
 
 Confidentiality
   -> Unauthorized individuals are not able to gain access to sensitive information
